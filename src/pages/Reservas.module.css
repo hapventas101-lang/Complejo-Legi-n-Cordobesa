@@ -1,0 +1,280 @@
+.reservasPage {
+  padding-top: 100px; /* offset navbar */
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.wizardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.progressTracker {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.progressTracker::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  right: 30%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+  transform: translateY(-50%);
+}
+
+.stepIndicator {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-surface-light);
+  color: var(--color-text-muted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  z-index: 1;
+  transition: var(--transition-smooth);
+  border: 2px solid transparent;
+}
+
+.stepIndicator.active {
+  background: var(--color-primary-light);
+  color: var(--color-text);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 15px rgba(204, 255, 51, 0.3);
+}
+
+.formCard {
+  padding: 2.5rem;
+}
+
+.formCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+}
+
+.mt4 {
+  margin-top: 2.5rem;
+}
+
+.optionsGrid, .timeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.optionBtn, .timeBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.optionBtn:hover, .timeBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-text-muted);
+}
+
+.optionBtn.selected, .timeBtn.selected {
+  background: var(--color-primary-light);
+  border-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+.actions {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.actionsGroup {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Calendar Styles customization */
+.calendarWrapper {
+  background: var(--color-surface);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+.customCalendar {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  color: var(--color-text);
+}
+
+:global(.react-calendar__navigation button) {
+  color: var(--color-text);
+  min-width: 44px;
+  background: none;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+:global(.react-calendar__navigation button:hover) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+:global(.react-calendar__month-view__weekdays) {
+  color: var(--color-text-muted);
+  font-weight: bold;
+}
+
+:global(.react-calendar__tile) {
+  color: var(--color-text);
+  padding: 1em 0.5em;
+  border-radius: 8px;
+}
+
+:global(.react-calendar__tile:enabled:hover) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+:global(.react-calendar__tile--active) {
+  background: var(--color-primary) !important;
+  color: white;
+  border: 1px solid var(--color-accent);
+}
+
+:global(.react-calendar__tile--now) {
+  background: rgba(204, 255, 51, 0.1);
+}
+
+/* Forms */
+.inputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.inputGroup input, .inputGroup textarea {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition-smooth);
+}
+
+.inputGroup input:focus, .inputGroup textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Step 3 - Payment */
+.summaryBox {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.summaryBox p {
+  margin-bottom: 0.5rem;
+}
+
+.summaryBox p:last-child {
+  margin-bottom: 0;
+}
+
+.paymentInfo {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+}
+
+.paymentHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.paymentHeader h4 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.aliasBox {
+  background: var(--color-surface-light);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.alias {
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  letter-spacing: 1px;
+}
+
+.bankInfo {
+  color: var(--color-text-muted);
+}
+
+.warningBox {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: rgba(230, 57, 70, 0.1); /* Subtle red detail */
+  border-left: 4px solid var(--color-accent-red);
+  padding: 1rem;
+  border-radius: 0 8px 8px 0;
+}
+
+.warningBox p {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.whatsappSubmit {
+  font-size: 1.125rem;
+}

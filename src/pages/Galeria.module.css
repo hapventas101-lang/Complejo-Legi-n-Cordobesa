@@ -1,0 +1,153 @@
+.pageWrapper {
+  padding-top: 100px;
+  padding-bottom: 0;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Gallery Grid */
+.gallerySection {
+  margin-bottom: 6rem;
+}
+
+.masonryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 250px;
+  gap: 1.5rem;
+}
+
+.imageCard {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Make some items span two rows or columns for a masonry feel */
+.imageCard:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.imageCard:nth-child(4) { grid-column: span 2; }
+.imageCard:nth-child(5) { grid-row: span 2; }
+
+@media (max-width: 768px) {
+  .imageCard:nth-child(1),
+  .imageCard:nth-child(4),
+  .imageCard:nth-child(5) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+.imageCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.imageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 1.5rem 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  color: white;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.imageOverlay span {
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+.imageCard:hover img {
+  transform: scale(1.05);
+}
+
+.imageCard:hover .imageOverlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Testimonials */
+.testimonialsSection {
+  background-color: var(--color-surface);
+  padding: 5rem 0;
+}
+
+.testHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.testHeader h2 {
+  font-size: 2.5rem;
+}
+
+.testGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.testCard {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.stars {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.testText {
+  font-style: italic;
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 2rem;
+}
+
+.testAuthor {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.testAuthor h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+}
+
+.testAuthor span {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
